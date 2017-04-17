@@ -1,3 +1,5 @@
+package errcomposer
+
 // The MIT License (MIT)
 
 // Copyright © 2017 Dmitry Moskowski
@@ -19,7 +21,10 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-package errcomposer
+
+import (
+	"reflect"
+)
 
 // ComposedError is an error that aggregates multiple
 // errors.
@@ -71,5 +76,10 @@ func Has(composedErr, err error) bool {
 		}
 		return false
 	}
-	return composedErr == err
+
+	return isSame(composedErr, err)
+}
+
+func isSame(a, b error) bool {
+	return a == b || reflect.TypeOf(a).String() == reflect.TypeOf(b).String()
 }
