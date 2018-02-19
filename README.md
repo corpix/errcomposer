@@ -1,6 +1,8 @@
 errcomposer
 -------------
 
+[![Build Status](https://travis-ci.org/corpix/errcomposer.svg?branch=master)](https://travis-ci.org/corpix/errcomposer)
+
 This is a simple `error` composition package.
 
 ## Usage
